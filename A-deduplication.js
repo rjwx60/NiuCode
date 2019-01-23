@@ -15,41 +15,41 @@ var testArr = [1,1,NaN,NaN,null,null,undefined,undefined,,,'a',{},{},'','',Infin
 
 
 
-// // way2: lost {}、emptyElement
-// testArr.sort().map((ac, index, arr) => {
-// 	if(!arr['nan'] && ac !== ac){
-// 		arr['nan'] = true;
-// 		resultArr.push(NaN);
-// 	}else if(!arr['undefined'] && ac === undefined){
-// 		arr['undefined'] = true;
-// 		resultArr.push(undefined);
-// 	}else if(ac !== undefined && ac === arr[index-1] && ac !== arr[index+1]){
-// 		resultArr.push(ac);
-// 	}
-// })
+// way2: lost {}、emptyElement
+testArr.sort().map((ac, index, arr) => {
+	if(!arr['nan'] && ac !== ac){
+		arr['nan'] = true;
+		resultArr.push(NaN);
+	}else if(!arr['undefined'] && ac === undefined){
+		arr['undefined'] = true;
+		resultArr.push(undefined);
+	}else if(ac !== undefined && ac === arr[index-1] && ac !== arr[index+1]){
+		resultArr.push(ac);
+	}
+})
 
-// // result2: [ '', 1, Infinity, NaN, null, undefined ]
+// result2: [ '', 1, Infinity, NaN, null, undefined ]
 
 
 
-// // way3: lost emptyElement
-// resultArr = testArr.reduce((ac,cv) => {
-// 	if(ac[cv]){
-// 		ac[cv]++;
-// 	}else{
-// 		ac[cv] = 1;
-// 	}
-// 	return ac;
-// },{})
+// way3: lost emptyElement
+resultArr = testArr.reduce((ac,cv) => {
+	if(ac[cv]){
+		ac[cv]++;
+	}else{
+		ac[cv] = 1;
+	}
+	return ac;
+},{})
 
-// resultArr = Object.keys(resultArr).reduce((ac,cv) => {
-// 	if(resultArr[cv] >= 2){
-// 		ac = ac.concat(cv);
-// 	}
-// 	return ac;
-// },[])
+resultArr = Object.keys(resultArr).reduce((ac,cv) => {
+	if(resultArr[cv] >= 2){
+		ac = ac.concat(cv);
+	}
+	return ac;
+},[])
 
-// // result3: [ '1', 'NaN', 'null', 'undefined', '[object Object]', '', 'Infinity' ]
+// result3: [ '1', 'NaN', 'null', 'undefined', '[object Object]', '', 'Infinity' ]
 
 
 
@@ -60,6 +60,8 @@ testArr.reduce((ac,cv) => {
 	return ac;
 },{})
 resultArr = Object.keys(resultArr);
+
+// result4: [ '1', 'NaN', 'null', 'undefined', '[object Object]', '', 'Infinity' ]
 
 
 
