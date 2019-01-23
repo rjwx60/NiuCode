@@ -1,5 +1,4 @@
 // Title: 
-// 直接修改数组，删除数组 arr 中所有 item 元素，并返回
 // 不直接修改数组，删除数组 arr 中所有 item 元素，并返回新数组
 
 var testArr = [11,11,'a',NaN,null,undefined,undefined,,,,Infinity,Infinity,+0,-0,0],
