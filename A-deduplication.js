@@ -15,7 +15,7 @@ var testArr = [1,1,NaN,NaN,null,null,undefined,undefined,,,'a',{},{},'','',Infin
 
 
 
-// way2: lost {}、emptyElement
+// // way2: lost {}、emptyElement
 // testArr.sort().map((ac, index, arr) => {
 // 	if(!arr['nan'] && ac !== ac){
 // 		arr['nan'] = true;
@@ -28,11 +28,11 @@ var testArr = [1,1,NaN,NaN,null,null,undefined,undefined,,,'a',{},{},'','',Infin
 // 	}
 // })
 
-// result2: [ '', 1, Infinity, NaN, null, undefined ]
+// // result2: [ '', 1, Infinity, NaN, null, undefined ]
 
 
 
-// way3: lost emptyElement
+// // way3: lost emptyElement
 // resultArr = testArr.reduce((ac,cv) => {
 // 	if(ac[cv]){
 // 		ac[cv]++;
@@ -49,7 +49,7 @@ var testArr = [1,1,NaN,NaN,null,null,undefined,undefined,,,'a',{},{},'','',Infin
 // 	return ac;
 // },[])
 
-// result3: [ '1', 'NaN', 'null', 'undefined', '[object Object]', '', 'Infinity' ]
+// // result3: [ '1', 'NaN', 'null', 'undefined', '[object Object]', '', 'Infinity' ]
 
 
 
@@ -60,6 +60,8 @@ testArr.reduce((ac,cv) => {
 	return ac;
 },{})
 resultArr = Object.keys(resultArr);
+
+
 
 console.log("origin data: ", testArr);
 console.log("new data:    ", resultArr);
