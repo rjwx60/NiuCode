@@ -7,7 +7,8 @@ var testArr = [1,2,3,77,88,99,444,555,666],
 
 result = (function(arr){
 	return arr.map(cv => {
-		return cv * cv;
+		// return cv * cv;
+		return Math.pow(cv,2);
 	})
 })(testArr)
 
