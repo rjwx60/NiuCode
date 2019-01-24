@@ -46,12 +46,15 @@ console.log("calculation results:    ", result);
 
 
 
+
 // 关键：
 // 1. 熟练 array api 使用和底层实现
 // 2. 熟悉 各个浅拷贝 原理和方法和痛点
 // 3. 数组填充不单单只有 push、unshift、splice，还可使用 call、apply
 // 4. eval 会将字符串内容作为代码执行
 // 5. 熟悉各项 api 的底层实现和原理非常有必要，清晰它们的痛点，以应对多变
+
+
 
 // 注意：
 // 1. 浅拷贝的 JSON.parse(JSON.stringify()) 内部对 null 等有处理
@@ -69,6 +72,8 @@ console.log("calculation results:    ", result);
 // 13. map 没有处理 empty Element
 // 14. new Set()用于数组去重，Array.from()用于将set结构转为数组
 // 15. 使用 push、unshift 和 apply、call 的组合难以合并多个数组，最后的形式为：[[...],[...],[...]]
+
+
 
 // 浅拷贝
 // 1. concat
