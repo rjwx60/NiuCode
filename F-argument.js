@@ -4,9 +4,9 @@
 var result = 0;
 
 // way1: 
-// result = (function(...value){
-// 	return eval(value.join('+'))
-// })(1,2,3,4,5);
+result = (function(...value){
+	return eval(value.join('+'))
+})(1,2,3,4,5);
 
 
 // way2:
