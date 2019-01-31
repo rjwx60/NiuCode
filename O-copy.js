@@ -3,7 +3,41 @@
 
 
 
+// Deep Copy
 // way1:
+var deepClone = function(obj) { 
+    var cacheValue;   
+    if (Object.prototype.toString.call(obj) === "[object Array]") { 
+        cacheValue = [];  
+        while (obj.length--) { 
+            cacheValue[i] = deepClone(obj[i]); 
+        }
+        return cacheValue;
+    } else if (Object.prototype.toString.call(obj) === "[object Object]"){ 
+        cacheValue = {}; 
+        // 注意，此举也会顺带遍历原型链上的属性
+        for (var k in obj) { 
+            cacheValue[k] = deepClone(obj[k]); 
+        }
+        return cacheValue;
+    }else{
+        return obj;
+    }
+}
+
+
+
+// Shallow Copy
+// way1:
+var shallowCopy = function(target){
+    var cacheValue = {};
+    for(var item in target){
+        if(target.hasOwnProperty(item)){
+            cacheValue[item] = target[item];
+        }
+    }
+    return cacheValue;
+}
 
 
 
@@ -34,6 +68,8 @@
 // 14. new Set()用于数组去重，Array.from()用于将set结构转为数组
 // 15. 使用 push、unshift 和 apply、call 的组合难以合并多个数组，最后的形式为：[[...],[...],[...]]
 // 16. 延迟执行函数，大多是使用了闭包，或IIFE，或匿名函数
+// 17. 遍历实例自身变量: Object.keys、for-in、Object.prototype.getOwnPropertyNames(obj)
+
 
 
 // 浅拷贝
