@@ -1,5 +1,9 @@
 // Title: 
 // 数组去重
+// 思路1: 遍历 + 缓存数组 indexOf 值 (not perfect)
+// 思路2: 遍历 + 原有数组 indexOf 当前值 和 索引的比较 (not perfect)
+// 思路3: 排序 + 前后值比较 (not perfect)
+// 思路4: 嵌套遍历 (not perfect)
 
 
 var testArr = [11,11,'a',NaN,null,undefined,undefined,,,,Infinity,Infinity,+0,-0,0],
@@ -14,7 +18,7 @@ result = Object.keys(testArr.reduce((ac,cv) => {
 		ac[cv] = 1;
 	}
 	return ac;
-},{}))
+},{}));
 
 
 
@@ -26,7 +30,7 @@ testArr.slice(0).forEach((cv,index,arr)=> {
 	}else if(cv === cv && !~result.indexOf(cv)){
 		result.push(cv);		
 	}
-})
+});
 
 
 
@@ -45,7 +49,11 @@ testArr.slice(0).forEach((cv,index,arr)=> {
             result.push(value);
         }
     })
-})(testArr)
+})(testArr);
+
+
+// way4: ES6 way
+result = [...new Set(testArr)];
 
 console.log("origin data: ", testArr);
 console.log("calculation results:    ", result);
