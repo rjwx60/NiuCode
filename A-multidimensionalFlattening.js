@@ -111,3 +111,4 @@ function arrayChildrenFlatten(array, { childrenKeys, flattenParent, flattenParen
 	});
 	return result;
 }
+
